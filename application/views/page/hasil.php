@@ -19,8 +19,15 @@
 										<h5>Nama : <?php echo $data->nama; ?></h5>
 										<h5>Usia : <?php echo $data->usia; ?></h5>
 										<br>
-										<!-- <h5>Di Rekomendasikan Menggunakan : <?php echo $data->nama_product; ?></h5> -->
+										<h5>Di Rekomendasikan Menggunakan Product Dengan Kode:</h5>
+										<?php
+										$sama = $this->M_page->get_terbesar()->row();
+										$sam = $this->M_page->get_sama($sama->tampung_ranking)->result();
+										foreach ($sam as $ada) { ?>
+											<h4><?= $ada->kode_product; ?></h4>
+										<?php } ?>
 										<br>
+										<h5>Untuk mengetahui nama product dengan kode product di atas bisa cari pada tabel di bawah.</h5>
 										<br>
 									</div>
 								<?php
